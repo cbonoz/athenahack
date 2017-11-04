@@ -9,10 +9,10 @@ export default class Home extends Component {
         labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         datasets: [
           {
-            label: 'Your Patient Meals',
+            label: 'Meals this Week',
             backgroundColor: 'rgba(255,99,132,0.2)',
             borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1,
+            borderWidth: 2,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
             data: [65, 59, 80, 81, 56, 55, 40]
