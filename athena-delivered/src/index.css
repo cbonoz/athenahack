@@ -24,5 +24,8 @@ body {
 
 .jumbotron {
   height:100vh;
+}
 
+.navbar {
+  margin-bottom: 0px;
 }

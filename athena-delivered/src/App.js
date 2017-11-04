@@ -24,9 +24,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Link to="/">Home</Link>{' '}
-            <Link to={{pathname: '/dashboard'}}>Dashboard</Link>{' '}
-            <Link to="/reporting">Reporting</Link>
+            <Header/>
 
             <Switch>
               <Route exact path="/" component={Home} />
