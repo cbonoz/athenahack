@@ -9,11 +9,16 @@ export default class Dashboard extends Component {
 
     constructor(props) {
         super(props)
+        let names = []
+        for (var i = 0; i < 20; i++ ) {
+            names.push(random_name({ seed: 'Based on this' + i }))
+        }
         this.state = {
             patientid: 3373,
             departmentid: 1,
             countDown: null,
-            blocks: []
+            blocks: [],
+            names: names
         }
     }
 
@@ -66,16 +71,15 @@ export default class Dashboard extends Component {
                         <Table striped bordered condensed hover>
                             <thead>
                                 <tr>
-                                    <th>First Name</th>
+                                    <th>Your Active Patients</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mark Jacob</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob Thornton</td>
-                                </tr>
+                                {this.state.names.map((name) => {
+                                    return (<tr className="patient-row">
+                                        <td>{name}</td>
+                                    </tr>)
+                                })}
                             </tbody>
                         </Table>
                     </Col>
