@@ -3,6 +3,17 @@ import {Button, Jumbotron, Grid, Row} from 'react-bootstrap';
 // import  { ReactRotatingText } from 'react-rotating-text';
 import {Bar} from 'react-chartjs-2';
 
+import bgImage from '../assets/hospital_cafe.png';
+
+var backgroundStyle = {
+    opacity: 0.6,
+    backgroundImage: `url(${bgImage})`,
+    backgroundColor: `transparent`
+};
+
+var jumbotronText = {
+    opacity: 1
+}
 
 export default class Home extends Component {
 
@@ -29,16 +40,17 @@ export default class Home extends Component {
                         /* <b><ReactRotatingText items={['Clinicians', 'Patients', 'Hospital Kitchens']} /></b> */
     render() {
         const self = this;
-        const bgImage = '../assets/hospital_cafe.png';
 
         return (
             <div>
-                <Jumbotron className="jumbotron">
-                    <h1>AthenaDelivered</h1>
-                    
-                    <p>A centralized and transparent Meal Plan center for 
-                    <br />on a simple Web Interface</p>
-                    <p><Button bsStyle="primary">let's get started</Button></p>
+                <Jumbotron className="jumbotron" style={backgroundStyle}>
+                    <div className="static-modal" style={jumbotronText}>
+                        <h1>AthenaDelivered</h1>
+
+                        <p>A centralized and transparent Meal Plan center for
+                        <br />on a simple Web Interface</p>
+                        <p><Button bsStyle="primary">let's get started</Button></p>
+                    </div>
                 </Jumbotron>
 
                 <Grid>
