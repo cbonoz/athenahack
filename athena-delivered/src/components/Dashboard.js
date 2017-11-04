@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Row, Col, Grid } from 'react-bootstrap';
-
+import { Row, Col, Grid, Table } from 'react-bootstrap';
 import { api } from '../util/athena';
+import ReactGridLayout from 'react-grid-layout';
+import random_name from 'node-random-name';
+import BlockStack from './BlockStack'
 
 export default class Dashboard extends Component {
 
@@ -9,10 +11,28 @@ export default class Dashboard extends Component {
         super(props)
         this.state = {
             patientid: 3373,
-            departmentid: 1
+            departmentid: 1,
+            countDown: null,
+            blocks: []
         }
     }
-    
+
+    addNewEvent() {
+        const self = this;
+        // new event
+        const result = random_name() + " ate chicken"
+        self.setState({ blocks: [result, ...self.state.blocks] })
+    }
+
+    componentDidMount() {
+        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 1000) });
+    }
+
+
+    componentWillUnmount() {
+        clearInterval(this.state.countDown);
+    }
+
     componentWillMount() {
         const allergyRoute = `/chart/${this.state.patientid}/allergies`;
         console.log('getting: ' + allergyRoute)
@@ -26,21 +46,67 @@ export default class Dashboard extends Component {
             console.log('error: ' + err);
         });
     }
-    
+
     render() {
+        const layout = [
+            { i: 'a', x: 0, y: 0, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'b', x: 3, y: 0, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'c', x: 6, y: 0, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'd', x: 0, y: 1, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'e', x: 3, y: 1, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'f', x: 6, y: 1, w: 3, h: 5, minW: 2, maxW: 4 },
+            { i: 'g', x: 0, y: 2, w: 3, h: 5, minW: 2, maxW: 4 }
+        ];
         return (
             <div>
-                <h1>Dashboard</h1>
+                <h4>Dashboard</h4>
 
                 <Row className="show-grid">
                     <Col xs={12} md={2}>
-                       Patients list goes here 
+                        <Table striped bordered condensed hover>
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mark Jacob</td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob Thornton</td>
+                                </tr>
+                            </tbody>
+                        </Table>
                     </Col>
-                    <Col xs={12} md={8}>
-                        Main content area
+                    <Col xs={12} md={7}>
+
+                        <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+                            <div className="dash-grid-cell" key="a"><h4>Patient Preferences</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="b"><h4>Care Plan</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="c"><h4>Allergies</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="d"><h4>Medications</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="e"><h4>Meal Plan</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="f"><h4>Suggested Ingredients</h4>
+
+                            </div>
+                            <div className="dash-grid-cell" key="g"><h4>Available Ingredients</h4>
+
+                            </div>
+                        </ReactGridLayout>
                     </Col>
-                    <Col xs={12} md={2}>
-                        Live data feed goes here
+                    <Col xs={12} md={3}>
+                        {/* <BlockStack blocks={this.state.blocks} /> */}
                     </Col>
                 </Row>
 

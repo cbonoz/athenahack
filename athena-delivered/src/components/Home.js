@@ -35,7 +35,6 @@ export default class Home extends Component {
             <div>
                 <Jumbotron className="jumbotron">
                     <h1>AthenaDelivered</h1>
-                    
                     <p>A centralized and transparent Meal Plan center for 
                     <br />on a simple Web Interface</p>
                     <p><Button bsStyle="primary">let's get started</Button></p>
