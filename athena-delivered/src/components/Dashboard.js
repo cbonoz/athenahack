@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
         ];
         return (
             <div>
-                <h4>Dashboard</h4>
+                {/* <h4 className="page-heading">Clinician Dashboard</h4> */}
 
                 <Row className="show-grid">
                     <Col xs={12} md={2}>

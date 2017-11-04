@@ -10,7 +10,7 @@ export default class Reporting extends Component {
                         <Col xs={1} md={1}>
                         </Col>
                         <Col xs={10} md={10}>
-                            <h4>Reporting</h4>
+                            {/* <h4 className="page-heading">Meal Metrics</h4> */}
                             <Table striped bordered condensed hover>
                                 <thead>
                                     <tr>

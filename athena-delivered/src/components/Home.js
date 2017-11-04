@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Button, Jumbotron, Grid, Row} from 'react-bootstrap';
 // import  { ReactRotatingText } from 'react-rotating-text';
 import {Bar} from 'react-chartjs-2';
+import athena_logo from './../assets/athena_delivered_trans.png';
 
 import bgImage from '../assets/hospital_cafe.png';
 
@@ -43,7 +44,8 @@ export default class Home extends Component {
             <div>
                 <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
                     <div className="static-modal-jumbotron">
-                        <h1>AthenaDelivered</h1>
+                        <img src={athena_logo}/>
+                        {/* <h1>AthenaDelivered</h1> */}
 
                         <p>A centralized and transparent Meal Plan center for
                         <br />on a simple Web Interface</p>

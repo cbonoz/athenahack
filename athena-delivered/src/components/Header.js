@@ -24,10 +24,10 @@ export default class Header extends Component {
                         </Nav>
                         <Nav pullRight>
                             <LinkContainer to="/dashboard">
-                                <NavItem eventKey={1} href="#">Dashboard</NavItem>
+                                <NavItem eventKey={1} href="#">Clinician Dashboard</NavItem>
                             </LinkContainer>
                             <LinkContainer to="/reporting">
-                                <NavItem eventKey={2} href="#">Reporting</NavItem>
+                                <NavItem eventKey={2} href="#">Meal Metrics</NavItem>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>
