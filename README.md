@@ -27,3 +27,8 @@ Two commands to get started:
 * yarn start (deploys on :3000)
 
 
+#### Example id
+* patientid: 3373 (Fille Minion)
+* departmentid: 1
+* practice: 1128700
+* version: preview1
