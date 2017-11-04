@@ -5,6 +5,7 @@ export default class Reporting extends Component {
     render() {
         return (
             <div>
+                <h1>Reporting</h1>
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>
