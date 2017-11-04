@@ -6,13 +6,11 @@ import {Bar} from 'react-chartjs-2';
 import bgImage from '../assets/hospital_cafe.png';
 
 var backgroundStyle = {
-    opacity: 0.6,
+    backgroundColor: 'rgba(0,0,0,0.6)',
     backgroundImage: `url(${bgImage})`,
-    backgroundColor: `transparent`
-};
+}
 
 var jumbotronText = {
-    opacity: 1
 }
 
 export default class Home extends Component {
@@ -43,8 +41,8 @@ export default class Home extends Component {
 
         return (
             <div>
-                <Jumbotron className="jumbotron" style={backgroundStyle}>
-                    <div className="static-modal" style={jumbotronText}>
+                <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
+                    <div className="static-modal-jumbotron">
                         <h1>AthenaDelivered</h1>
 
                         <p>A centralized and transparent Meal Plan center for

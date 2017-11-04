@@ -87,3 +87,14 @@ body {
   box-sizing: border-box;
   cursor: se-resize;
 }
+
+.static-modal-jumbotron {
+  color: #222222;
+  opacity: 1.0;
+}
+
+.transparency-jumbotron {
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.6);
+  opacity: 0.6;
+}
