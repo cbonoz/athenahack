@@ -8,9 +8,9 @@ export default class Header extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/dashboard'>Dashboard</Link></li>
-                            <li><Link to='/reporting'>Reporting</Link></li>
+                            <li><Link to="/">Home</Link>{' '}</li>
+                            <li><Link to={{ pathname: '/dashboard' }}>Dashboard</Link>{' '}</li>
+                            <li><Link to="/reporting">Reporting</Link></li>
                         </ul>
                     </nav>
                 </header>

@@ -21,3 +21,8 @@ body {
     opacity: 0;
   }
 }
+
+.jumbotron {
+  height:100vh;
+
+}

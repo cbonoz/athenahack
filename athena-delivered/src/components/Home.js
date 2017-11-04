@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Button, Jumbotron, Grid, Row} from 'react-bootstrap';
-import  { ReactRotatingText } from 'react-rotating-text';
+// import  { ReactRotatingText } from 'react-rotating-text';
 import {Bar} from 'react-chartjs-2';
 
 
@@ -31,14 +31,9 @@ export default class Home extends Component {
         const self = this;
         const bgImage = '../assets/hospital_cafe.png';
 
-        const styles = {
-            container: {
-                backgroundImage: `url(${bgImage})`
-            }
-        };
         return (
             <div>
-                <Jumbotron style={styles.container}>
+                <Jumbotron className="jumbotron">
                     <h1>AthenaDelivered</h1>
                     
                     <p>A centralized and transparent Meal Plan center for 
