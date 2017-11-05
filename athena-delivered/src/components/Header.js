@@ -25,9 +25,9 @@ export default class Header extends Component {
                             <LinkContainer to="/reporting">
                                 <NavItem>Meal Metrics</NavItem>
                             </LinkContainer>
-                            <LinkContainer to="/">
+                            {/* <LinkContainer to="/logout"> */}
                                 <NavItem>Logout</NavItem>
-                            </LinkContainer>
+                            {/* </LinkContainer> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

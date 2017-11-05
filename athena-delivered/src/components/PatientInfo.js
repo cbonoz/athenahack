@@ -6,7 +6,7 @@ export default class PatientInfo extends Component {
         return (
             <div>
                 <ListGroup>
-                <ListGroupItem header={"Patient: " + this.props.patient.name} bsStyle="info"></ListGroupItem>
+                <ListGroupItem className="patient-box-header" header={"Patient: " + this.props.patient.name} bsStyle="info"></ListGroupItem>
                 <ListGroupItem>
                 {/* <h4>Patient: {this.props.patient.name}</h4> */}
                 <p><i>id: <b>{this.props.patient.id}</b></i></p>
@@ -14,6 +14,7 @@ export default class PatientInfo extends Component {
                 <p>Height: {this.props.patient.height}</p>
                 <p>Family: {this.props.patient.family}</p>
                 <Button bsStyle="success meal-plan-button" bsSize="large" onClick={() => { console.log('click')}}>View Meal Plan</Button>
+                <Button bsStyle="warning meal-plan-button" bsSize="large" onClick={() => { console.log('click')}}>View Meal History</Button>
                 </ListGroupItem>
                 </ListGroup>
             </div>
