@@ -13,7 +13,6 @@
 //	 permissions and limitations under the License.
 
 var events = require('events')
-var http = require('http');
 var https = require('https')
 var querystring = require('querystring')
 
@@ -83,8 +82,8 @@ function Connection(version, key, secret, practiceid) {
 	var _secret = ''
 	var _token = ''
 	// var _hostname = 'cors-anywhere.herokuapp.com/api.athenahealth.com'
-	// var _hostname = 'api.athenahealth.com'
-	var _hostname = 'http://localhost:8081';
+	// var _hostname = 'http://localhost:8081';
+	var _hostname = 'api.athenahealth.com'
 
 	/**
 	 * The practice ID to use when sending requests.
@@ -112,15 +111,10 @@ function Connection(version, key, secret, practiceid) {
 		var emitter = new events.EventEmitter
 
 		var auth_prefixes = {
-			v1: '',
-			preview1: '',
-			openpreview1: ''
+			v1: '/oauth',
+			preview1: '/oauthpreview',
+			openpreview1: '/oauthopenpreview',
 		}
-		// var auth_prefixes = {
-		// 	v1: '/oauth',
-		// 	preview1: '/oauthpreview',
-		// 	openpreview1: '/oauthopenpreview',
-		// }
 
 		// Set up the request
 		var verb = 'POST'
@@ -168,7 +162,7 @@ function Connection(version, key, secret, practiceid) {
 		var emitter = new events.EventEmitter
 		var output
 
-		var req = http.request({
+		var req = https.request({
 			hostname: _hostname,
 			method: verb,
 			path: path,
@@ -199,7 +193,6 @@ function Connection(version, key, secret, practiceid) {
 		req.on('error', function(e) {
 			emitter.emit('error', e)
 		})
-
 		req.write(body)
 		req.end()
 
@@ -221,14 +214,14 @@ function Connection(version, key, secret, practiceid) {
 		var emitter = new events.EventEmitter
 
 		// var new_path = path_join(_version, practiceid, path)
-		var new_path = path_join(practiceid, path)
-		var new_body = querystring.stringify(body)
-		// var new_headers = merge({
-		// 	'authorization': 'Bearer ' + _token,
-		// 	'content-length': new_body.length,
-		// }, headers)
+		var new_path = path_join(practiceid, path);
+		var new_body = querystring.stringify(body);
+		var new_headers = merge({
+			'authorization': 'Bearer ' + _token,
+			'content-length': new_body.length,
+		}, headers);
 
-		var new_headers = headers;
+		// var new_headers = headers;
 
 		// This is a little hack to get authorized calls to retry when we get a 401 Not Authorized.
 		// Since this is Javascript, we can't wait for the second `call` in order to return. To
@@ -243,7 +236,7 @@ function Connection(version, key, secret, practiceid) {
 					.on('ready', function() {
 						// Since we can't just do this recursively (due to emitter returns), we have
 						// to re-set the auth header manually.
-						// new_headers['authorization'] = 'Bearer ' + _token
+						new_headers['authorization'] = 'Bearer ' + _token
 
 						call(verb, new_path, new_body, new_headers, false)
 							.on('done', function(response) {

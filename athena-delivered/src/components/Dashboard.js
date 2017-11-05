@@ -184,11 +184,11 @@ export default class Dashboard extends Component {
                             </tbody>
                         </Table>
                     </Col>
-                    <Col xs={12} md={9}>
+                    <Col xs={12} md={8}>
 
                         <PatientInfo patient={this.state.selectedPatient}/>
 
-                        <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+                        <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1275}>
                             <div className="dash-grid-cell" key="a"><h4>Patient Preferences</h4>
                                 {this._renderPatientPreferences()}
                             </div>
@@ -212,6 +212,7 @@ export default class Dashboard extends Component {
                             </div>
                         </ReactGridLayout>
                     </Col>
+                    <Col xsHidden md={2}></Col>
                     
                 </Row>
 
