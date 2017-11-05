@@ -99,6 +99,14 @@ body {
   user-select: none;
 }
 
+.check-icon {
+  width: 32px;
+  height: auto;
+  position: absolute;
+  bottom: 16px;
+  right: 8px;
+}
+
 .react-grid-item > .react-resizable-handle {
   position: absolute;
   width: 20px;
@@ -121,6 +129,18 @@ body {
 .static-modal-jumbotron {
   color: #222222;
   opacity: 1.0;
+}
+
+.feed-heading {
+  /* margin-top: 15px; */
+  padding: 5px;
+}
+
+.feed-item {
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  background: whitesmoke;
 }
 
 .jumbotron p {
