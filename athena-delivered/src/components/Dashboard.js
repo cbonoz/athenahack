@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { Row, Col, Table, Image } from 'react-bootstrap';
+import { Row, Col, Table, Image, Grid , Thumbnail} from 'react-bootstrap';
 import PatientInfo from './PatientInfo';
 import ReactGridLayout from 'react-grid-layout';
-import img1 from "../assets/allergies/1.png";
+
+import allergy1 from "../assets/allergies/1.png";
+import recipe1 from "../assets/recipes/2.jpg";
+
 const athena = require( '../util/athena');
 export default class Dashboard extends Component {
 
@@ -23,7 +26,7 @@ export default class Dashboard extends Component {
             "Jaunita King": {
                 patientPreferences: ["thing", "thing2"],
                 carePlan: [],
-                allergies: ["../assets/allergies/1.png",""],
+                allergies: [allergy1, 2],
                 mealPlan: [],
                 suggestedIngredients: [],
                 availableIngredients: ["../assets/ingredients/1.png", "../assets/recipes/2.jpg"]
@@ -226,9 +229,23 @@ export default class Dashboard extends Component {
 
     _renderAllergies() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
-                <Image className="img-img" src={img1} responsive />
+            <div>
+                    <Col xs={5} md={5}>
+                        <Thumbnail href="#" alt="171x180"
+                                   src={this.state.patientData[this.state.selectedPatient.name].allergies[0]} />
+                    </Col>
+                    <Col xs={5} md={5}>
+                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
+                    </Col>
+                    <Col xs={5} md={5}>
+                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
+                    </Col>
+                    <Col xs={5} md={5}>
+                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
+                    </Col>
+                    <Col xs={5} md={5}>
+                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
+                    </Col>
             </div>
         )
     }
