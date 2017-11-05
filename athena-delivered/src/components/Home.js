@@ -20,6 +20,7 @@ export default class Home extends Component {
         this.state = {
             titleWords: ['Clinicians', 'Patients', 'Chefs'],
             actions: [' ordered lunch ', ' ordered dinner ', ' was marked as \'had eaten\' '],
+            roles: ['Clinician', 'Attending Nurse', 'Doctor'],
             blocks: []
         }
     }
@@ -28,13 +29,14 @@ export default class Home extends Component {
         const self = this;
         // new event
         const randomAction = athena.random(this.state.actions)
-        const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `by ${random_name({seed: `${Math.random()}`})}`;
+        const randomRole = athena.random(this.state.roles);
+        const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `, recorded by ${randomRole} ${random_name({seed: `${Math.random()}`})}`;
         const result = { name: actionString, index: self.state.blocks.length };
         self.setState({ blocks: [result, ...self.state.blocks] })
     }
 
     componentDidMount() {
-        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 1000) });
+        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 3000) });
     }
 
     componentWillUnmount() {
@@ -48,7 +50,6 @@ export default class Home extends Component {
 
         return (
             <div>
-
                 <Row>
                     <Col xs={12} md={9}>
                         <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
@@ -60,7 +61,6 @@ export default class Home extends Component {
                                     <span className="header-text">
                                         <p>A centralized and transparent Meal Plan center for <br />
                                             {'{'}Clinicians, Patients, Chefs{'}'}
-
                                             <br />on a simple Web Interface.</p>
                                     </span>
                                     <p><Button bsStyle="primary" className="start-button">Let's get started</Button></p>
@@ -70,11 +70,10 @@ export default class Home extends Component {
 
                     </Col>
                     <Col xs={12} md={3}>
+                        <BlockStack blocks={this.state.blocks}/>
                     </Col>
                 </Row>
             </div>
         )
     }
 }
-
-                            // <BlockStack blocks={this.state.blocks} />
