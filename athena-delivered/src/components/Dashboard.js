@@ -23,6 +23,8 @@ export default class Dashboard extends Component {
             api: athena.api,
             patientData: athena.patients.map((patient, index) => {
                 return {
+                    allergyImages: [allergy1],
+                    recipeImages: [recipe1],
                     patientPreferences: pdata.orderStays.map((orderType) => orderType.name),
                     carePlan: pdata.orderStays,
                     allergies: pdata.allergies['allergies'],
@@ -80,7 +82,7 @@ export default class Dashboard extends Component {
             <div>
                     <Col xs={5} md={5}>
                         <Thumbnail href="#" alt="171x180"
-                                   src={this.state.patientData[this.state.selected].allergies[0]} />
+                                   src={this.state.patientData[this.state.selected].allergyImages[0]} />
                     </Col>
                     <Col xs={5} md={5}>
                         <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
@@ -127,7 +129,7 @@ export default class Dashboard extends Component {
         return (
             <div className="tabs__content">
                 {this.state.patientData[this.state.selected].patientPreferences}
-                <img src={this.state.patientData[this.state.selected].availableIngredients[0]} responsive />
+                <Image src={this.state.patientData[this.state.selected].availableIngredients[0]} responsive />
             </div>
         )
     }
