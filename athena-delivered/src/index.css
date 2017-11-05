@@ -194,3 +194,8 @@ body {
 .push-left {
   float: left !important;
 }
+
+.img-img {
+  width: 100px;
+  height: 100px;
+}

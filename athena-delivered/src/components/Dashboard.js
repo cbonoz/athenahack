@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Row, Col, Table } from 'react-bootstrap';
+import { Row, Col, Table, Image } from 'react-bootstrap';
 import PatientInfo from './PatientInfo';
 import ReactGridLayout from 'react-grid-layout';
+import img1 from "../assets/allergies/1.png";
 const athena = require( '../util/athena');
 export default class Dashboard extends Component {
 
@@ -16,6 +17,170 @@ export default class Dashboard extends Component {
             selectedPatient: athena.patients[0],
             api: athena.api
         };
+
+
+        this.state.patientData = {
+            "Jaunita King": {
+                patientPreferences: ["thing", "thing2"],
+                carePlan: [],
+                allergies: ["../assets/allergies/1.png",""],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: ["../assets/ingredients/1.png", "../assets/recipes/2.jpg"]
+            },
+            "Emerita Shawhan": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Alfred Krisher": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Ruben Fulwiler": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Rudy Goyco": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Drew Sanker": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Lavonda Maeda": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Nereida Severson": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Mirian Giessler": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Sergio Mensinger": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Liane Damiani": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Carlo Lair": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Louie Clardy": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Milly Aulds": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Shirlee Abdulaziz": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Seth Stepler": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Emmanuel Sloas": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Kimberly Gackle": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Glenn Hoyal": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            },
+            "Alex Mallary": {
+                patientPreferences: ["otherThang", "thing3"],
+                carePlan: [],
+                allergies: [],
+                mealPlan: [],
+                suggestedIngredients: [],
+                availableIngredients: []
+            }
+        }
     }
 
     onPatientClick(index) {
@@ -41,6 +206,65 @@ export default class Dashboard extends Component {
         }).on('error', (err) => {
             console.log('error: ' + err);
         });
+    }
+
+    _renderPatientPreferences() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+            </div>
+        )
+    }
+
+    _renderCarePlan() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+            </div>
+        )
+    }
+
+    _renderAllergies() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+                <Image className="img-img" src={img1} responsive />
+            </div>
+        )
+    }
+
+    _renderMedications() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+            </div>
+        )
+    }
+
+
+    _renderMealPlan() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+            </div>
+        )
+    }
+
+    _renderSuggestedIngredients() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+            </div>
+        )
+    }
+
+    _renderAvailableIngredients() {
+        return (
+            <div className="tabs__content">
+                {this.state.patientData[this.state.selectedPatient.name].patientPreferences}
+                <Image src={this.state.patientData[this.state.selectedPatient.name].availableIngredients[0]} responsive />
+            </div>
+        )
     }
 
     render() {
@@ -87,25 +311,25 @@ export default class Dashboard extends Component {
 
                         <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
                             <div className="dash-grid-cell" key="a"><h4>Patient Preferences</h4>
-
+                                {this._renderPatientPreferences()}
                             </div>
                             <div className="dash-grid-cell" key="b"><h4>Care Plan</h4>
-
+                                {this._renderCarePlan()}
                             </div>
                             <div className="dash-grid-cell" key="c"><h4>Allergies</h4>
-
+                                {this._renderAllergies()}
                             </div>
                             <div className="dash-grid-cell" key="d"><h4>Medications</h4>
-
+                                {this._renderMedications()}
                             </div>
                             <div className="dash-grid-cell" key="e"><h4>Meal Plan</h4>
-
+                                {this._renderMealPlan()}
                             </div>
                             <div className="dash-grid-cell" key="f"><h4>Suggested Ingredients</h4>
-
+                                {this._renderSuggestedIngredients()}
                             </div>
                             <div className="dash-grid-cell" key="g"><h4>Available Ingredients</h4>
-
+                                {this._renderAvailableIngredients()}
                             </div>
                         </ReactGridLayout>
                     </Col>
