@@ -1,7 +1,8 @@
 AthenaDelivered
 ---
 
-We’re seeking a way to connect dieticians, patients, and kitchens in a 
+We’re seeking a way to connect dieticians, patients, and kitchens 
+in a 
 
 ### Concept
 

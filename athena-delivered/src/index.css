@@ -10,12 +10,34 @@ body {
   background: whitesmoke;
 }
 
+.dash-grid-cell h4 {
+  text-align: center;
+}
+
 .patient-row {
   height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.reporting-header {
+  margin: 30px;
+}
+
+.start-button {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.patient-heading {
+  color: purple;
 }
 
 .page-heading {
-  color: blue;
+  color: purple;
 }
 
 .react-rotating-text-cursor {
@@ -92,13 +114,56 @@ body {
   cursor: se-resize;
 }
 
+.top-margin {
+  margin-top: 20px;
+}
+
 .static-modal-jumbotron {
   color: #222222;
   opacity: 1.0;
 }
 
+.jumbotron p {
+  font-size: 26px;
+}
+
+.white {
+  color:white !important;
+}
+
+.purple {
+  color: purple !important;
+}
+
+.header-image {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.header-text-section {
+  margin: 50px;
+}
+
+.header-text {
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .transparency-jumbotron {
   background: rgb(0,0,0);
-  background: rgba(0,0,0,0.6);
-  opacity: 0.6;
+  max-height: 100%;
+  background-size: cover;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.active-row {
+  background:lightblue !important;
+}
+
+.push-left {
+  float: left !important;
 }

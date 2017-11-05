@@ -97,6 +97,17 @@ function main() {
 	const orderStays = `/stays/active/orders/diet`;
 	const configurationOrderStays = `/stays/configuration/orders/diet`
 
+	api.GET(allergyRoute, {
+		params: {
+			departmentid: departmentid
+		}
+	}).on('done', function (response) {
+		console.log('allergy response: ' + JSON.stringify(response));
+	}).on('error', (err) => {
+		console.log('error: ' + err);
+	});
+
+	return;
 	console.log('getting: ' + allergyRoute)
 	// Allergies
 	api.GET(allergyRoute, {

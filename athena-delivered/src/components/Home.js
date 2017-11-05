@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import {Button, Jumbotron, Grid, Row} from 'react-bootstrap';
+import { Button, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 // import  { ReactRotatingText } from 'react-rotating-text';
-import {Bar} from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import athena_logo from './../assets/athena_delivered_trans.png';
+import BlockStack from './BlockStack'
+import random_name from 'node-random-name';
 
-import bgImage from '../assets/hospital_cafe.png';
+import bgImage from '../assets/hospital_cafe_3.png';
+const athena = require( '../util/athena');
 
 var backgroundStyle = {
-    backgroundColor: 'rgba(0,0,0,0.6)',
     backgroundImage: `url(${bgImage})`,
-}
-
-var jumbotronText = {
 }
 
 export default class Home extends Component {
@@ -19,53 +18,63 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: {
-                labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                datasets: [{
-                    label: 'Meals this Week',
-                    backgroundColor: 'rgba(255,99,132,0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 2,
-                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                    hoverBorderColor: 'rgba(255,99,132,1)',
-                    data: [65, 59, 80, 81, 56, 55, 40]
-                }
-                ],
-                titleWords: ['Clinicians', 'Patients', 'third']
-            }
+            titleWords: ['Clinicians', 'Patients', 'Chefs'],
+            actions: [' ordered lunch ', ' ordered dinner ', ' was marked as \'had eaten\' '],
+            blocks: []
         }
     }
 
-                        /* <b><ReactRotatingText items={['Clinicians', 'Patients', 'Hospital Kitchens']} /></b> */
+    addNewEvent() {
+        const self = this;
+        // new event
+        const randomAction = athena.random(this.state.actions)
+        const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `by ${random_name({seed: `${Math.random()}`})}`;
+        const result = { name: actionString, index: self.state.blocks.length };
+        self.setState({ blocks: [result, ...self.state.blocks] })
+    }
+
+    componentDidMount() {
+        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 1000) });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.countDown);
+    }
+
+    /* <b><ReactRotatingText items={['Clinicians', 'Patients', 'Hospital Kitchens']} /></b> */
+
     render() {
         const self = this;
 
         return (
             <div>
-                <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
-                    <div className="static-modal-jumbotron">
-                        <img src={athena_logo}/>
-                        {/* <h1>AthenaDelivered</h1> */}
 
-                        <p>A centralized and transparent Meal Plan center for
-                        <br />on a simple Web Interface</p>
-                        <p><Button bsStyle="primary">let's get started</Button></p>
-                    </div>
-                </Jumbotron>
+                <Row>
+                    <Col xs={12} md={9}>
+                        <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
+                            <div className="static-modal-jumbotron opaque centered">
+                                <img className="header-image" src={athena_logo} />
+                                {/* <h1>AthenaDelivered</h1> */}
 
-                <Grid>
-                    <Row>
-                        <Bar
-                            data={self.state.data}
-                            width={100}
-                            height={500}
-                            options={{
-                                maintainAspectRatio: false
-                            }}
-                        />
-                    </Row>
-                </Grid>
+                                <div className="header-text-section">
+                                    <span className="header-text">
+                                        <p>A centralized and transparent Meal Plan center for <br />
+                                            {'{'}Clinicians, Patients, Chefs{'}'}
+
+                                            <br />on a simple Web Interface.</p>
+                                    </span>
+                                    <p><Button bsStyle="primary" className="start-button">Let's get started</Button></p>
+                                </div>
+                            </div>
+                        </Jumbotron>
+
+                    </Col>
+                    <Col xs={12} md={3}>
+                    </Col>
+                </Row>
             </div>
         )
     }
 }
+
+                            // <BlockStack blocks={this.state.blocks} />
