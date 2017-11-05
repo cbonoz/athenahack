@@ -37,13 +37,13 @@ export default class Dashboard extends Component {
                 return {
                     allergyImages: [banana, fish],
                     recipeImages: [recipe1],
-                    patientPreferences: pdata.orderStays.map((orderType) => orderType.name),
+                    patientPreferences: [athena.random(pdata.orderStays.map((orderType) => orderType.name)), athena.random(pdata.orderStays.map((orderType) => orderType.name))],
                     carePlan: pdata.orderStays,
                     allergies: pdata.allergies['allergies'],
                     mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'] ,
                     suggestedIngredients: [bread, carrot, grape, celery, chicken, steak],
                     availableIngredients: [banana, bread, carrot, chicken, fish, grape, steak],
-                    medications: ["Not Available"]
+                    medications: ["None"]
                 }
             })
         };
@@ -103,24 +103,24 @@ export default class Dashboard extends Component {
                     // departmentid, approveduser, name, createduser, duration, orderid, createddate,
                     // status, orderingprovidername, activateduser, orderingproviderid, approveddate, note,
                     return (<div key={index}>
-                        <li className="" ><b>orderingmethodname:</b> {preference.orderingmethodname}</li>
-                        <li className="" ><b>startdate:</b> {preference.startdate}</li>
-                        <li className="" ><b>stayid:</b> {preference.stayid}</li>
-                        <li className="" ><b>activateddate:</b> {preference.activateddate}</li>
-                        <li className="" ><b>ordertypeid:</b> {preference.ordertypeid}</li>
-                        <li className="" ><b>departmentid:</b> {preference.departmentid}</li>
-                        <li className="" ><b>approveduser:</b> {preference.approveduser}</li>
-                        <li className="" ><b>name:</b> {preference.name}</li>
-                        <li className="" ><b>createduser:</b> {preference.createduser}</li>
-                        <li className="" ><b>duration:</b> {preference.duration}</li>
-                        <li className="" ><b>orderid:</b> {preference.orderid}</li>
-                        <li className="" ><b>createddate:</b> {preference.createddate}</li>
-                        <li className="" ><b>status:</b> {preference.status}</li>
-                        <li className="" ><b>orderingprovidername:</b> {preference.orderingprovidername}</li>
-                        <li className="" ><b>activateduser:</b> {preference.activateduser}</li>
-                        <li className="" ><b>orderingproviderid:</b> {preference.orderingproviderid}</li>
-                        <li className="" ><b>approveddate:</b> {preference.approveddate}</li>
-                        <li className="" ><b>note:</b> {preference.note}</li>
+                        <li className="" ><b>Ordering method name:</b> {preference.orderingmethodname}</li>
+                        <li className="" ><b>Start date:</b> {preference.startdate}</li>
+                        <li className="" ><b>Stay id:</b> {preference.stayid}</li>
+                        <li className="" ><b>Activated date:</b> {preference.activateddate}</li>
+                        <li className="" ><b>Ordertype id:</b> {preference.ordertypeid}</li>
+                        <li className="" ><b>Department id:</b> {preference.departmentid}</li>
+                        <li className="" ><b>Approved user:</b> {preference.approveduser}</li>
+                        <li className="" ><b>Name:</b> {preference.name}</li>
+                        <li className="" ><b>Created user:</b> {preference.createduser}</li>
+                        <li className="" ><b>Duration:</b> {preference.duration}</li>
+                        <li className="" ><b>Order id:</b> {preference.orderid}</li>
+                        <li className="" ><b>Created date:</b> {preference.createddate}</li>
+                        <li className="" ><b>Status:</b> {preference.status}</li>
+                        <li className="" ><b>Ordering provider name:</b> {preference.orderingprovidername}</li>
+                        <li className="" ><b>Activated user:</b> {preference.activateduser}</li>
+                        <li className="" ><b>Ordering provider id:</b> {preference.orderingproviderid}</li>
+                        <li className="" ><b>Approved date:</b> {preference.approveddate}</li>
+                        <li className="" ><b>Notes:</b> {preference.note}</li>
                     </div>)
                 })}
             </div>
@@ -194,8 +194,8 @@ export default class Dashboard extends Component {
             { i: 'c', x: 6, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
             { i: 'd', x: 0, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
             { i: 'e', x: 3, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
-            { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
-            { i: 'g', x: 0, y: 2, w: width, h: height, minW: 2, maxW: maxWidth }
+            { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: maxWidth }
+            // { i: 'g', x: 0, y: 2, w: width, h: height, minW: 2, maxW: maxWidth }
         ];
         const self = this;
         return (
@@ -239,15 +239,15 @@ export default class Dashboard extends Component {
                             <div className="dash-grid-cell" key="d"><h4>Medications</h4>
                                 {this._renderMedications()}
                             </div>
-                            <div className="dash-grid-cell" key="e"><h4>Meal Plan</h4>
-                                {this._renderMealPlan()}
-                            </div>
-                            <div className="dash-grid-cell" key="f"><h4>Suggested Ingredients</h4>
+                            <div className="dash-grid-cell" key="e"><h4>Suggested Ingredients</h4>
                                 {this._renderSuggestedIngredients()}
                             </div>
-                            <div className="dash-grid-cell" key="g"><h4>Available Ingredients</h4>
+                            <div className="dash-grid-cell" key="f"><h4>Available Ingredients</h4>
                                 {this._renderAvailableIngredients()}
                             </div>
+                            {/* <div className="dash-grid-cell" key="e"><h4>Meal Plan</h4>
+                                {this._renderMealPlan()}
+                            </div> */}
                         </ReactGridLayout>
                     </Col>
                     <Col xsHidden md={2}></Col>
