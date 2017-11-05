@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap';
 
 export default class PatientInfo extends Component {
     render() {
@@ -9,6 +10,7 @@ export default class PatientInfo extends Component {
                 <p>Gender: {this.props.patient.gender}</p>
                 <p>Height: {this.props.patient.height}</p>
                 <p>Family: {this.props.patient.family}</p>
+                <Button bsStyle="success meal-plan-button" bsSize="large" onClick={() => { console.log('click')}}>View Meal Plan</Button>
             </div>
         )
     }

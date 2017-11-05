@@ -19,8 +19,18 @@ export default class Home extends Component {
         super(props)
         this.state = {
             titleWords: ['Clinicians', 'Patients', 'Chefs'],
-            actions: [' ordered lunch ', ' ordered dinner ', ' was marked as \'had eaten\' '],
+            actions: ['ordered lunch', 'ordered dinner', 'was marked as \'had eaten\' for', 'cancelled meal'],
             roles: ['Clinician', 'Attending Nurse', 'Doctor'],
+            foodItems: [
+                "Chicken",
+                "Salmon",
+                "Steak",
+                "Gluten Free Plate",
+                "Fruit Plate",
+                "Kale Salad",
+                "Salad",
+                "Hamburger"
+            ],
             blocks: []
         }
     }
@@ -30,7 +40,10 @@ export default class Home extends Component {
         // new event
         const randomAction = athena.random(this.state.actions)
         const randomRole = athena.random(this.state.roles);
-        const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `, recorded by ${randomRole} ${random_name({seed: `${Math.random()}`})}`;
+        const randomFood = athena.random(this.state.foodItems);
+        const randomName1 = random_name({seed: `${Math.random()}`});
+        const randomName2 = random_name({seed: `${Math.random()}`});
+        const actionString = `${randomName1} ${randomAction} ${randomFood}, recorded by ${randomRole} ${randomName2}.`;
         const result = { name: actionString, index: self.state.blocks.length };
         self.setState({ blocks: [result, ...self.state.blocks] })
 
