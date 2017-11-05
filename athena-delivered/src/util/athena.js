@@ -10,7 +10,15 @@ const library = (function () {
     const practiceid = 1128700; // sandbox sample id: 195900
     const departmentid = 1;
 
-    let patients = []
+    // Initialize with sample patient.  
+    let patients = [{
+        name: 'Fille Minyon',
+        height: `6' ${Math.floor(Math.random() * 12) + 1}\"`,
+        gender: 'M',
+        family: "Fille Minyon Jr. (son)",
+        id: Math.floor(Math.random() * 1000000000)
+    }];
+
     for (var i = 0; i < 20; i++ ) {
         const patient = {
             name: random_name({ seed: 'Based on this' + i }),

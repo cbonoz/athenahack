@@ -171,6 +171,10 @@ body {
   margin: 50px;
 }
 
+.meal-plan-button {
+  margin: 10px;
+}
+
 .header-text {
   font-weight: bold;
   font-size: 16px;
