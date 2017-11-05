@@ -8,6 +8,10 @@ body {
 
 .dash-grid-cell {
   background: whitesmoke;
+  list-style: none;
+  padding: 4px;
+  overflow: hidden;
+  font-size: small;
 }
 
 .dash-grid-cell h4 {
@@ -120,6 +124,7 @@ body {
   background-origin: content-box;
   box-sizing: border-box;
   cursor: se-resize;
+  padding: 5px;
 }
 
 .top-margin {

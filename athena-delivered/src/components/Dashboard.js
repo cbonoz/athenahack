@@ -63,16 +63,20 @@ export default class Dashboard extends Component {
 
     _renderPatientPreferences() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}
             </div>
         )
     }
 
     _renderCarePlan() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}}
             </div>
         )
     }
@@ -102,8 +106,10 @@ export default class Dashboard extends Component {
 
     _renderMedications() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}}
             </div>
         )
     }
@@ -111,24 +117,30 @@ export default class Dashboard extends Component {
 
     _renderMealPlan() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}}
             </div>
         )
     }
 
     _renderSuggestedIngredients() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}}
             </div>
         )
     }
 
     _renderAvailableIngredients() {
         return (
-            <div className="tabs__content">
-                {this.state.patientData[this.state.selected].patientPreferences}
+            <div className="dash-grid-cell">
+                {this.state.patientData[this.state.selected].patientPreferences.map(function(preference){
+                    return <li className="" key={preference}>{preference}</li>
+                })}}
                 <Image src={this.state.patientData[this.state.selected].availableIngredients[0]} responsive />
             </div>
         )
