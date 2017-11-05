@@ -90,9 +90,11 @@ export default class Dashboard extends Component {
     _renderPatientPreferences() {
         return (
             <div className="dash-grid-cell">
+                <ul>
                 {this.state.patientData[this.state.selected].patientPreferences.map(function (preference) {
                     return <li className="" key={preference}>{preference}</li>
                 })}
+                </ul>
             </div>
         )
     }
@@ -132,6 +134,10 @@ export default class Dashboard extends Component {
     _renderAllergies() {
         return (
             <div>
+                 <ul>
+                    <li>Bananas</li>
+                    <li>Fish</li>
+                </ul>
                     <Col xs={5} md={5}>
                         <Thumbnail href="#" alt="171x180"
                                    src={this.state.patientData[this.state.selected].allergyImages[0]} />
@@ -168,6 +174,10 @@ export default class Dashboard extends Component {
     _renderSuggestedIngredients() {
         return (
             <div className="dash-grid-cell">
+                <ul>
+                    <li>Salad</li>
+                    <li>Chicken</li>
+                </ul>
                 {this.state.patientData[this.state.selected].suggestedIngredients.map(function(preference, index){
                     // return <li className="" key={preference}>{preference}</li>
                     console.log(preference)
