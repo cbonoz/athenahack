@@ -43,7 +43,7 @@ export default class Dashboard extends Component {
                     mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'] ,
                     suggestedIngredients: [bread, carrot, grape, celery, chicken, steak],
                     availableIngredients: [banana, bread, carrot, chicken, fish, grape, steak],
-                    medications: ["None"]
+                    medications: ["Alprazolam (Xanax)"]
                 }
             })
         };
@@ -186,15 +186,15 @@ export default class Dashboard extends Component {
 
     render() {
         const width = 3;
-        const height = 10;
+        const height = 12;
         const maxWidth = 10;
         const layout = [
             { i: 'a', x: 0, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
-            { i: 'b', x: 3, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'b', x: 3, y: 0, w: width*2, h: height, minW: 2, maxW: maxWidth },
             { i: 'c', x: 6, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
             { i: 'd', x: 0, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
-            { i: 'e', x: 3, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
-            { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: maxWidth }
+            { i: 'e', x: 3, y: 1, w: width, h: height, minW: 2, maxW: maxWidth }
+            // { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: maxWidth }
             // { i: 'g', x: 0, y: 2, w: width, h: height, minW: 2, maxW: maxWidth }
         ];
         const self = this;
@@ -227,7 +227,7 @@ export default class Dashboard extends Component {
                         <PatientInfo patient={this.state.selectedPatient} showModal={this.state.showModal} handleOpenModal={this.handleOpenModal}/>
 
                         <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1275}>
-                            <div className="dash-grid-cell" key="a"><h4>Patient Preferences</h4>
+                            <div className="dash-grid-cell" key="a"><h4>Patient Dietary Orders</h4>
                                 {this._renderPatientPreferences()}
                             </div>
                             <div className="dash-grid-cell" key="b"><h4>Care Plan</h4>
@@ -239,12 +239,12 @@ export default class Dashboard extends Component {
                             <div className="dash-grid-cell" key="d"><h4>Medications</h4>
                                 {this._renderMedications()}
                             </div>
-                            <div className="dash-grid-cell" key="e"><h4>Suggested Ingredients</h4>
+                            <div className="dash-grid-cell" key="e"><h4>Suggested Meal Options</h4>
                                 {this._renderSuggestedIngredients()}
                             </div>
-                            <div className="dash-grid-cell" key="f"><h4>Available Ingredients</h4>
+                            {/* <div className="dash-grid-cell" key="f"><h4>Available Ingredients</h4>
                                 {this._renderAvailableIngredients()}
-                            </div>
+                            </div> */}
                             {/* <div className="dash-grid-cell" key="e"><h4>Meal Plan</h4>
                                 {this._renderMealPlan()}
                             </div> */}
