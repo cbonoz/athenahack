@@ -5,6 +5,16 @@ import ReactGridLayout from 'react-grid-layout';
 
 import allergy1 from "../assets/allergies/1.png";
 import recipe1 from "../assets/recipes/2.jpg";
+import banana from "../assets/banana.png";
+import bread from "../assets/bread.png";
+import carrot from "../assets/carrot.png";
+import celery from "../assets/celery.png";
+import chicken from "../assets/chicken.png";
+import fish from "../assets/fish.png";
+import grape from "../assets/grape.png";
+import steak from "../assets/steak.png";
+
+
 import pdata from '../util/pdata';
 
 const athena = require( '../util/athena');
@@ -23,14 +33,14 @@ export default class Dashboard extends Component {
             api: athena.api,
             patientData: athena.patients.map((patient, index) => {
                 return {
-                    allergyImages: [allergy1],
+                    allergyImages: [banana, fish],
                     recipeImages: [recipe1],
                     patientPreferences: pdata.orderStays.map((orderType) => orderType.name),
                     carePlan: pdata.orderStays,
                     allergies: pdata.allergies['allergies'],
                     mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'] ,
-                    suggestedIngredients: ["Kale", "Beef Tenderloin", "Pork Loin", "Chicken Thigh", "Chicken Wings"],
-                    availableIngredients: ["Beef Tenderloin", "Pork Loin", "Chicken Thigh", "Chicken Wings"],
+                    suggestedIngredients: [bread, carrot, grape, celery, chicken, steak],
+                    availableIngredients: [banana, bread, carrot, chicken, fish, grape, steak],
                     medications: ["Not Available"]
                 }
             })
@@ -80,24 +90,24 @@ export default class Dashboard extends Component {
                     // departmentid, approveduser, name, createduser, duration, orderid, createddate,
                     // status, orderingprovidername, activateduser, orderingproviderid, approveddate, note,
                     return <div>
-                        <li className="" key={preference}>{preference.orderingmethodname}</li>
-                        <li className="" key={preference}>{preference.startdate}</li>
-                        <li className="" key={preference}>{preference.stayid}</li>
-                        <li className="" key={preference}>{preference.activateddate}</li>
-                        <li className="" key={preference}>{preference.ordertypeid}</li>
-                        <li className="" key={preference}>{preference.departmentid}</li>
-                        <li className="" key={preference}>{preference.approveduser}</li>
-                        <li className="" key={preference}>{preference.name}</li>
-                        <li className="" key={preference}>{preference.createduser}</li>
-                        <li className="" key={preference}>{preference.duration}</li>
-                        <li className="" key={preference}>{preference.orderid}</li>
-                        <li className="" key={preference}>{preference.createddate}</li>
-                        <li className="" key={preference}>{preference.status}</li>
-                        <li className="" key={preference}>{preference.orderingprovidername}</li>
-                        <li className="" key={preference}>{preference.activateduser}</li>
-                        <li className="" key={preference}>{preference.orderingproviderid}</li>
-                        <li className="" key={preference}>{preference.approveddate}</li>
-                        <li className="" key={preference}>{preference.note}</li>
+                        <li className="" key={preference}><b>orderingmethodname:</b> {preference.orderingmethodname}</li>
+                        <li className="" key={preference}><b>startdate:</b> {preference.startdate}</li>
+                        <li className="" key={preference}><b>stayid:</b> {preference.stayid}</li>
+                        <li className="" key={preference}><b>activateddate:</b> {preference.activateddate}</li>
+                        <li className="" key={preference}><b>ordertypeid:</b> {preference.ordertypeid}</li>
+                        <li className="" key={preference}><b>departmentid:</b> {preference.departmentid}</li>
+                        <li className="" key={preference}><b>approveduser:</b> {preference.approveduser}</li>
+                        <li className="" key={preference}><b>name:</b> {preference.name}</li>
+                        <li className="" key={preference}><b>createduser:</b> {preference.createduser}</li>
+                        <li className="" key={preference}><b>duration:</b> {preference.duration}</li>
+                        <li className="" key={preference}><b>orderid:</b> {preference.orderid}</li>
+                        <li className="" key={preference}><b>createddate:</b> {preference.createddate}</li>
+                        <li className="" key={preference}><b>status:</b> {preference.status}</li>
+                        <li className="" key={preference}><b>orderingprovidername:</b> {preference.orderingprovidername}</li>
+                        <li className="" key={preference}><b>activateduser:</b> {preference.activateduser}</li>
+                        <li className="" key={preference}><b>orderingproviderid:</b> {preference.orderingproviderid}</li>
+                        <li className="" key={preference}><b>approveddate:</b> {preference.approveddate}</li>
+                        <li className="" key={preference}><b>note:</b> {preference.note}</li>
                     </div>
                 })}
             </div>
@@ -112,16 +122,8 @@ export default class Dashboard extends Component {
                                    src={this.state.patientData[this.state.selected].allergyImages[0]} />
                     </Col>
                     <Col xs={5} md={5}>
-                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                    </Col>
-                    <Col xs={5} md={5}>
-                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                    </Col>
-                    <Col xs={5} md={5}>
-                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                    </Col>
-                    <Col xs={5} md={5}>
-                        <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
+                        <Thumbnail href="#" alt="171x180"
+                                   src={this.state.patientData[this.state.selected].allergyImages[1]} />
                     </Col>
             </div>
         )
@@ -152,7 +154,8 @@ export default class Dashboard extends Component {
         return (
             <div className="dash-grid-cell">
                 {this.state.patientData[this.state.selected].suggestedIngredients.map(function(preference){
-                    return <li className="" key={preference}>{preference}</li>
+                    // return <li className="" key={preference}>{preference}</li>
+                    return <Col xs={4} md={4}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
                 })}
             </div>
         )
@@ -162,9 +165,8 @@ export default class Dashboard extends Component {
         return (
             <div className="dash-grid-cell">
                 {this.state.patientData[this.state.selected].availableIngredients.map(function(preference){
-                    return <li className="" key={preference}>{preference}</li>
+                    return <Col xs={5} md={5}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
                 })}
-                <Image src={this.state.patientData[this.state.selected].availableIngredients[0]} responsive />
             </div>
         )
     }
