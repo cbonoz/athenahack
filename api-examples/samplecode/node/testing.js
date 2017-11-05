@@ -18,29 +18,6 @@
 var athenahealthapi = require('./athenahealthapi')
 var events = require('events')
 
-var express = require('express')
-var cors = require('cors')
-var app = express()
-
-app.use(cors())
-
-var corsOptions = {
-    origin: 'localhost',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
-app.get('/products/:id', function (req, res, next) {
-    // res.json({msg: 'This is CORS-enabled for all origins!'})
-    console.log(main())
-    res.writeHead(200, { 'Content-Type': contentType, 'Access-Control-Allow-Origin': '*' })
-    fetch('http://ajax.googleapis.com/ajax/services/feed/load?v=‌​1.0&num=8&q=http://r‌​ss.cnn.com/rss/editi‌​on_entertainment.rss‌​?output=rss', { method: 'get', mode: 'no-cors', }).then(() => { console.log('Works!'); });
-	// res.jsonp(main())
-})
-
-app.listen(8080, function () {
-    console.log('CORS-enabled express web server listening on port 8080')
-})
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Setup
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -107,7 +84,6 @@ function main() {
 		console.log('error: ' + err);
 	});
 
-	return;
 	console.log('getting: ' + allergyRoute)
 	// Allergies
 	api.GET(allergyRoute, {

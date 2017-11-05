@@ -1,3 +1,6 @@
 .key
 .secret
 .token
+
+samplecode/node/node_modules
+samplecode/node/node_modules/
