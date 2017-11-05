@@ -83,6 +83,7 @@ function Connection(version, key, secret, practiceid) {
 	var _secret = ''
 	var _token = ''
 	var _hostname = 'api.athenahealth.com'
+	// var _hostname = ''
 
 	/**
 	 * The practice ID to use when sending requests.
