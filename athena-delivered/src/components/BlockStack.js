@@ -43,7 +43,7 @@ export default class BlockStack extends Component {
           key={item.index}
           className={`item item--${item.modifier}`}
           style={{ height: 100 }}
-        ><span className='transaction'>{item}</span>
+        ><span className='transaction'>{item.name}</span>
        </div>)
     );
 
