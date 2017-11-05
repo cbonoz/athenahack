@@ -40,15 +40,9 @@ export default class Dashboard extends Component {
                     patientPreferences: pdata.orderStays.map((orderType) => orderType.name),
                     carePlan: pdata.orderStays,
                     allergies: pdata.allergies['allergies'],
-<<<<<<< HEAD
                     mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'] ,
                     suggestedIngredients: [bread, carrot, grape, celery, chicken, steak],
                     availableIngredients: [banana, bread, carrot, chicken, fish, grape, steak],
-=======
-                    mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'],
-                    suggestedIngredients: ["Kale", "Beef Tenderloin", "Pork Loin", "Chicken Thigh", "Chicken Wings"],
-                    availableIngredients: ["Beef Tenderloin", "Pork Loin", "Chicken Thigh", "Chicken Wings"],
->>>>>>> fix key index, need to fix modal
                     medications: ["Not Available"]
                 }
             })
@@ -108,49 +102,26 @@ export default class Dashboard extends Component {
                     // priority, orderingmethodname, startdate, stayid, activateddate, ordertypeid,
                     // departmentid, approveduser, name, createduser, duration, orderid, createddate,
                     // status, orderingprovidername, activateduser, orderingproviderid, approveddate, note,
-<<<<<<< HEAD
-                    return <div>
-                        <li className="" key={preference}><b>orderingmethodname:</b> {preference.orderingmethodname}</li>
-                        <li className="" key={preference}><b>startdate:</b> {preference.startdate}</li>
-                        <li className="" key={preference}><b>stayid:</b> {preference.stayid}</li>
-                        <li className="" key={preference}><b>activateddate:</b> {preference.activateddate}</li>
-                        <li className="" key={preference}><b>ordertypeid:</b> {preference.ordertypeid}</li>
-                        <li className="" key={preference}><b>departmentid:</b> {preference.departmentid}</li>
-                        <li className="" key={preference}><b>approveduser:</b> {preference.approveduser}</li>
-                        <li className="" key={preference}><b>name:</b> {preference.name}</li>
-                        <li className="" key={preference}><b>createduser:</b> {preference.createduser}</li>
-                        <li className="" key={preference}><b>duration:</b> {preference.duration}</li>
-                        <li className="" key={preference}><b>orderid:</b> {preference.orderid}</li>
-                        <li className="" key={preference}><b>createddate:</b> {preference.createddate}</li>
-                        <li className="" key={preference}><b>status:</b> {preference.status}</li>
-                        <li className="" key={preference}><b>orderingprovidername:</b> {preference.orderingprovidername}</li>
-                        <li className="" key={preference}><b>activateduser:</b> {preference.activateduser}</li>
-                        <li className="" key={preference}><b>orderingproviderid:</b> {preference.orderingproviderid}</li>
-                        <li className="" key={preference}><b>approveddate:</b> {preference.approveddate}</li>
-                        <li className="" key={preference}><b>note:</b> {preference.note}</li>
-                    </div>
-=======
                     return (<div key={index}>
-                        <li className="" >{preference.orderingmethodname}</li>
-                        <li className="" >{preference.startdate}</li>
-                        <li className="" >{preference.stayid}</li>
-                        <li className="" >{preference.activateddate}</li>
-                        <li className="" >{preference.ordertypeid}</li>
-                        <li className="" >{preference.departmentid}</li>
-                        <li className="" >{preference.approveduser}</li>
-                        <li className="" >{preference.name}</li>
-                        <li className="" >{preference.createduser}</li>
-                        <li className="" >{preference.duration}</li>
-                        <li className="" >{preference.orderid}</li>
-                        <li className="" >{preference.createddate}</li>
-                        <li className="" >{preference.status}</li>
-                        <li className="" >{preference.orderingprovidername}</li>
-                        <li className="" >{preference.activateduser}</li>
-                        <li className="" >{preference.orderingproviderid}</li>
-                        <li className="" >{preference.approveddate}</li>
-                        <li className="" >{preference.note}</li>
+                        <li className="" ><b>orderingmethodname:</b> {preference.orderingmethodname}</li>
+                        <li className="" ><b>startdate:</b> {preference.startdate}</li>
+                        <li className="" ><b>stayid:</b> {preference.stayid}</li>
+                        <li className="" ><b>activateddate:</b> {preference.activateddate}</li>
+                        <li className="" ><b>ordertypeid:</b> {preference.ordertypeid}</li>
+                        <li className="" ><b>departmentid:</b> {preference.departmentid}</li>
+                        <li className="" ><b>approveduser:</b> {preference.approveduser}</li>
+                        <li className="" ><b>name:</b> {preference.name}</li>
+                        <li className="" ><b>createduser:</b> {preference.createduser}</li>
+                        <li className="" ><b>duration:</b> {preference.duration}</li>
+                        <li className="" ><b>orderid:</b> {preference.orderid}</li>
+                        <li className="" ><b>createddate:</b> {preference.createddate}</li>
+                        <li className="" ><b>status:</b> {preference.status}</li>
+                        <li className="" ><b>orderingprovidername:</b> {preference.orderingprovidername}</li>
+                        <li className="" ><b>activateduser:</b> {preference.activateduser}</li>
+                        <li className="" ><b>orderingproviderid:</b> {preference.orderingproviderid}</li>
+                        <li className="" ><b>approveddate:</b> {preference.approveddate}</li>
+                        <li className="" ><b>note:</b> {preference.note}</li>
                     </div>)
->>>>>>> fix key index, need to fix modal
                 })}
             </div>
         )
@@ -159,7 +130,6 @@ export default class Dashboard extends Component {
     _renderAllergies() {
         return (
             <div>
-<<<<<<< HEAD
                     <Col xs={5} md={5}>
                         <Thumbnail href="#" alt="171x180"
                                    src={this.state.patientData[this.state.selected].allergyImages[0]} />
@@ -168,24 +138,6 @@ export default class Dashboard extends Component {
                         <Thumbnail href="#" alt="171x180"
                                    src={this.state.patientData[this.state.selected].allergyImages[1]} />
                     </Col>
-=======
-                <Col xs={5} md={5}>
-                    <Thumbnail href="#" alt="171x180"
-                        src={this.state.patientData[this.state.selected].allergyImages[0]} />
-                </Col>
-                <Col xs={5} md={5}>
-                    <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                </Col>
-                <Col xs={5} md={5}>
-                    <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                </Col>
-                <Col xs={5} md={5}>
-                    <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                </Col>
-                <Col xs={5} md={5}>
-                    <Thumbnail href="#" alt="171x180" src="/assets/thumbnail.png" />
-                </Col>
->>>>>>> fix key index, need to fix modal
             </div>
         )
     }
@@ -214,14 +166,9 @@ export default class Dashboard extends Component {
     _renderSuggestedIngredients() {
         return (
             <div className="dash-grid-cell">
-<<<<<<< HEAD
-                {this.state.patientData[this.state.selected].suggestedIngredients.map(function(preference){
+                {this.state.patientData[this.state.selected].suggestedIngredients.map(function(preference, index){
                     // return <li className="" key={preference}>{preference}</li>
-                    return <Col xs={4} md={4}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
-=======
-                {this.state.patientData[this.state.selected].suggestedIngredients.map(function (preference) {
-                    return <li className="" key={preference}>{preference}</li>
->>>>>>> fix key index, need to fix modal
+                    return <Col xs={4} md={4} key={index}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
                 })}
             </div>
         )
@@ -230,13 +177,8 @@ export default class Dashboard extends Component {
     _renderAvailableIngredients() {
         return (
             <div className="dash-grid-cell">
-<<<<<<< HEAD
-                {this.state.patientData[this.state.selected].availableIngredients.map(function(preference){
-                    return <Col xs={5} md={5}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
-=======
-                {this.state.patientData[this.state.selected].availableIngredients.map(function (preference) {
-                    return <li className="" key={preference}>{preference}</li>
->>>>>>> fix key index, need to fix modal
+                {this.state.patientData[this.state.selected].availableIngredients.map(function(preference, index){
+                    return <Col xs={5} md={5} key={index}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
                 })}
             </div>
         )
