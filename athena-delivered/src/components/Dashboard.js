@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Row, Col, Grid, Table } from 'react-bootstrap';
 import PatientInfo from './PatientInfo';
 import ReactGridLayout from 'react-grid-layout';
-
 const athena = require( '../util/athena');
 export default class Dashboard extends Component {
 
@@ -15,7 +14,7 @@ export default class Dashboard extends Component {
             countDown: null,
             patients: athena.patients,
             selected: 0,
-            selectedPatient: this.patients[0]
+            selectedPatient: athena.patients[0]
         }
         this.api = athena.api;
     }
@@ -42,14 +41,15 @@ export default class Dashboard extends Component {
     render() {
         const width = 3;
         const height = 10;
+        const maxWidth = 10;
         const layout = [
-            { i: 'a', x: 0, y: 0, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'b', x: 3, y: 0, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'c', x: 6, y: 0, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'd', x: 0, y: 1, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'e', x: 3, y: 1, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: 4 },
-            { i: 'g', x: 0, y: 2, w: width, h: height, minW: 2, maxW: 4 }
+            { i: 'a', x: 0, y: 0, w: width, h: height, minW: 2, maxW: maxWidth},
+            { i: 'b', x: 3, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'c', x: 6, y: 0, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'd', x: 0, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'e', x: 3, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'f', x: 6, y: 1, w: width, h: height, minW: 2, maxW: maxWidth },
+            { i: 'g', x: 0, y: 2, w: width, h: height, minW: 2, maxW: maxWidth }
         ];
         const self = this;
         return (

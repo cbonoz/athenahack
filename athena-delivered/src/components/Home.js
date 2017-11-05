@@ -7,6 +7,7 @@ import BlockStack from './BlockStack'
 import random_name from 'node-random-name';
 
 import bgImage from '../assets/hospital_cafe_3.png';
+const athena = require( '../util/athena');
 
 var backgroundStyle = {
     backgroundImage: `url(${bgImage})`,
@@ -17,7 +18,8 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            titleWords: ['Clinicians', 'Patients', 'third'],
+            titleWords: ['Clinicians', 'Patients', 'Chefs'],
+            actions: [' ordered lunch ', ' ordered dinner ', ' was marked as \'had eaten\' '],
             blocks: []
         }
     }
@@ -25,7 +27,9 @@ export default class Home extends Component {
     addNewEvent() {
         const self = this;
         // new event
-        const result = { name: random_name() + " ate chicken", index: self.state.blocks.length };
+        const randomAction = athena.random(this.state.actions)
+        const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `by ${random_name({seed: `${Math.random()}`})}`;
+        const result = { name: actionString, index: self.state.blocks.length };
         self.setState({ blocks: [result, ...self.state.blocks] })
     }
 
@@ -48,7 +52,7 @@ export default class Home extends Component {
                 <Row>
                     <Col xs={12} md={9}>
                         <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
-                            <div className="static-modal-jumbotron opaque">
+                            <div className="static-modal-jumbotron opaque centered">
                                 <img className="header-image" src={athena_logo} />
                                 {/* <h1>AthenaDelivered</h1> */}
 
@@ -59,7 +63,7 @@ export default class Home extends Component {
 
                                             <br />on a simple Web Interface.</p>
                                     </span>
-                                    <p><Button bsStyle="primary">Let's get started</Button></p>
+                                    <p><Button bsStyle="primary" className="start-button">Let's get started</Button></p>
                                 </div>
                             </div>
                         </Jumbotron>

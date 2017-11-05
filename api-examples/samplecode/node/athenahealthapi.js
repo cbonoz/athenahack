@@ -82,7 +82,7 @@ function Connection(version, key, secret, practiceid) {
 	var _key = ''
 	var _secret = ''
 	var _token = ''
-	var _hostname = 'https://cors-anywhere.herokuapp.com/api.athenahealth.com'
+	var _hostname = 'api.athenahealth.com'
 
 	/**
 	 * The practice ID to use when sending requests.
@@ -100,7 +100,6 @@ function Connection(version, key, secret, practiceid) {
 
 	/**
 	 * Performs basic access authentication to the API.
-	 *
 	 * The returned emitter emits 'done' on success and 'error' on failure.
 	 *
 	 * @private

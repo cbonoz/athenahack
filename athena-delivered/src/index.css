@@ -25,6 +25,13 @@ body {
   margin: 30px;
 }
 
+.start-button {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .patient-heading {
   color: purple;
 }
@@ -130,6 +137,7 @@ body {
 
 .header-image {
   margin-top: 50px;
+  margin-bottom: 15px;
 }
 
 .header-text-section {
