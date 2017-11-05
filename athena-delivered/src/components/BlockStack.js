@@ -45,13 +45,12 @@ export default class BlockStack extends Component {
           className={`item item--${item.modifier} feed-item`}
           style={{ height: 100 }}
         ><span className='transaction'>{item.name}</span>
-        {<img className="check-icon" src={checkmark}/>}
-       </div>)
+        <img className="check-icon" src={checkmark}/></div>)
     );
 
     return (
       <div>
-        <h4 className="centered feed-heading">Activity Feed</h4>
+        {/* <h4 className="centered feed-heading">Activity Feed</h4> */}
         <StackGrid
           duration={duration}
           columnWidth={columnWidth}

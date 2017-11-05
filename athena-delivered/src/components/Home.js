@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Button, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 // import  { ReactRotatingText } from 'react-rotating-text';
 import { Bar } from 'react-chartjs-2';
 import athena_logo from './../assets/athena_delivered_trans.png';
@@ -88,7 +88,12 @@ export default class Home extends Component {
 
                     </Col>
                     <Col xs={12} md={3}>
-                        {<BlockStack blocks={this.state.blocks}/>}
+                        <ListGroup>
+                            <ListGroupItem bsStyle="success"><span className="centered">Activity Feed</span></ListGroupItem>
+                            <ListGroupItem>
+                                <BlockStack blocks={this.state.blocks}/>
+                            </ListGroupItem>
+                        </ListGroup>
                     </Col>
                 </Row>
             </div>
