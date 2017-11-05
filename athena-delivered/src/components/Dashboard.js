@@ -7,6 +7,8 @@ import allergy1 from "../assets/allergies/1.png";
 import recipe1 from "../assets/recipes/2.jpg";
 
 const athena = require( '../util/athena');
+
+
 export default class Dashboard extends Component {
 
     constructor(props) {
