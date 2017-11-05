@@ -172,6 +172,14 @@ body {
   }
 }
 
+.white-background {
+  background: white;
+}
+
+.bootstrap-green {
+  background: #dff0d8;
+}
+
 .header-text-section {
   margin: 50px;
 }

@@ -9,9 +9,6 @@ import random_name from 'node-random-name';
 import bgImage from '../assets/hospital_cafe_3.png';
 const athena = require( '../util/athena');
 
-var backgroundStyle = {
-    backgroundImage: `url(${bgImage})`,
-}
 
 export default class Home extends Component {
 
@@ -48,7 +45,7 @@ export default class Home extends Component {
         self.setState({ blocks: [result, ...self.state.blocks] })
 
         clearInterval(this.state.countDown);
-        const rand = Math.round(Math.random()*(3000-500))+750;
+        const rand = Math.round(Math.random()*2250)+750;
         this.setState({ countDown: setInterval(this.addNewEvent.bind(this), rand) });
     }
 
@@ -66,8 +63,12 @@ export default class Home extends Component {
     render() {
         const self = this;
 
+        const backgroundStyle = {
+            backgroundImage: `url(${bgImage})`,
+        }
+
         return (
-            <div>
+            <div className="bootstrap-green">
                 <Row>
                     <Col xs={12} md={9}>
                         <Jumbotron className="jumbotron transparency-jumbotron" style={backgroundStyle}>
