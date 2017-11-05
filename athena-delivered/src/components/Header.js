@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Navbar, NavItem, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -12,7 +12,7 @@ export default class Header extends Component {
                     <Navbar.Header>
                         <Navbar.Brand>
                             <LinkContainer to="/">
-                                <a href="#" className="white">AthenaDelivered</a>
+                                <a className="white">AthenaDelivered</a>
                             </LinkContainer>
                         </Navbar.Brand>
                         <Navbar.Toggle />

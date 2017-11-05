@@ -82,6 +82,7 @@ function Connection(version, key, secret, practiceid) {
 	var _key = ''
 	var _secret = ''
 	var _token = ''
+	// var _hostname = 'cors-anywhere.herokuapp.com/api.athenahealth.com'
 	var _hostname = 'api.athenahealth.com'
 	// var _hostname = ''
 
@@ -129,6 +130,7 @@ function Connection(version, key, secret, practiceid) {
 		// Make the request and propagate the events, storing the token for later
 		call(verb, path, params, headers, false)
 			.on('done', function(response) {
+				console.log("received token: " + response.access_token);
 				_token = response.access_token
 				emitter.emit('ready')
 			}).on('error', function(error) {

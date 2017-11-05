@@ -45,7 +45,7 @@ export default class BlockStack extends Component {
           className={`item item--${item.modifier} feed-item`}
           style={{ height: 100 }}
         ><span className='transaction'>{item.name}</span>
-        {/* <img className="check-icon" src={checkmark}/> */}
+        {<img className="check-icon" src={checkmark}/>}
        </div>)
     );
 

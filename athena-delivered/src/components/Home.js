@@ -33,10 +33,15 @@ export default class Home extends Component {
         const actionString = random_name({seed: `${Math.random()}`}) + randomAction + `, recorded by ${randomRole} ${random_name({seed: `${Math.random()}`})}`;
         const result = { name: actionString, index: self.state.blocks.length };
         self.setState({ blocks: [result, ...self.state.blocks] })
+
+        clearInterval(this.state.countDown);
+        const rand = Math.round(Math.random()*(3000-500))+750;
+        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), rand) });
     }
 
     componentDidMount() {
-        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 3000) });
+        // Start the random event interval.
+        this.setState({ countDown: setInterval(this.addNewEvent.bind(this), 1000) });
     }
 
     componentWillUnmount() {
@@ -70,7 +75,7 @@ export default class Home extends Component {
 
                     </Col>
                     <Col xs={12} md={3}>
-                        <BlockStack blocks={this.state.blocks}/>
+                        {<BlockStack blocks={this.state.blocks}/>}
                     </Col>
                 </Row>
             </div>

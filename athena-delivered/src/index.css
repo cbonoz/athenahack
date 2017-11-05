@@ -160,6 +160,13 @@ body {
   margin-bottom: 15px;
 }
 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+  .header-image    {
+    width: 250px;
+  }
+}
+
 .header-text-section {
   margin: 50px;
 }

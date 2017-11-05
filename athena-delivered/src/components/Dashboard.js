@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Grid, Table } from 'react-bootstrap';
+import { Row, Col, Table } from 'react-bootstrap';
 import PatientInfo from './PatientInfo';
 import ReactGridLayout from 'react-grid-layout';
 const athena = require( '../util/athena');
@@ -7,16 +7,15 @@ export default class Dashboard extends Component {
 
     constructor(props) {
         super(props)
-  
         this.state = {
             patientid: 3373,
             departmentid: 1,
             countDown: null,
             patients: athena.patients,
             selected: 0,
-            selectedPatient: athena.patients[0]
-        }
-        this.api = athena.api;
+            selectedPatient: athena.patients[0],
+            api: athena.api
+        };
     }
 
     onPatientClick(index) {
@@ -25,11 +24,17 @@ export default class Dashboard extends Component {
     }
 
     componentWillMount() {
+        const api = this.state.api;
         const allergyRoute = `/chart/${this.state.patientid}/allergies`;
         console.log('getting: ' + allergyRoute)
-        this.api.GET(allergyRoute, {
+        console.log('api: ' + JSON.stringify(api))
+        api.GET(allergyRoute, {
             params: {
                 departmentid: this.state.departmentid
+            },
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
             }
         }).on('done', function (response) {
             console.log('allergy response: ' + JSON.stringify(response));
@@ -61,14 +66,14 @@ export default class Dashboard extends Component {
                         <Table striped bordered condensed hover>
                             <thead>
                                 <tr>
-                                    <th class="patient-row patient-heading centered">Your Active Patients</th>
+                                    <th className="patient-row patient-heading centered">Your Active Patients</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {this.state.patients.map((patient, index) => {
                                     return (
-                                    <tr 
-                                        className={"patient-row " + (index == self.state.selected ? 'active-row' : '')} 
+                                    <tr key={patient.id}
+                                        className={"patient-row " + (index === self.state.selected ? 'active-row' : '')} 
                                         onClick={() => self.onPatientClick(index)}>
                                         <td>{patient.name}</td>
                                     </tr>)

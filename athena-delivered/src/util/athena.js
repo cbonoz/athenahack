@@ -3,8 +3,8 @@ const library = (function () {
     const athenahealthapi = require('./athenahealthapi');
     const random_name = require('node-random-name');
 
-    const key = process.env.ATHENA_KEY; // 'CHANGEME: YOUR_API_KEY'
-    const secret = process.env.ATHENA_SECRET; // 'CHANGEME: YOUR_API_SECRET'
+    const key = "83jdpnesxu3ghem2ndpedtsr"; // 'CHANGEME: YOUR_API_KEY'
+    const secret = "N3XUHdv6svFSGNT"; // 'CHANGEME: YOUR_API_SECRET'
     const version = 'preview1'
     const patientid = 3373;
     const practiceid = 1128700; // sandbox sample id: 195900
@@ -25,6 +25,8 @@ const library = (function () {
     const random = (arr) => {
         return arr[Math.round(Math.random() * (arr.length - 1))];
     };
+
+    console.log(version, key, secret, practiceid);
 
     return {
         random: random,
