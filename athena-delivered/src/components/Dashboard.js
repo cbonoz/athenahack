@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Row, Col, Table, Image, Grid, Thumbnail } from 'react-bootstrap';
+import { Row, Col, Table, Image, Grid, Thumbnail, Label } from 'react-bootstrap';
 import PatientInfo from './PatientInfo';
 import ReactGridLayout from 'react-grid-layout';
 import Modal from 'react-bootstrap-modal';
 
 import allergy1 from "../assets/allergies/1.png";
 import recipe1 from "../assets/recipes/2.jpg";
+import salad from "../assets/salad.jpeg";
 import banana from "../assets/banana.png";
 import bread from "../assets/bread.png";
 import carrot from "../assets/carrot.png";
@@ -35,13 +36,14 @@ export default class Dashboard extends Component {
             api: athena.api,
             patientData: athena.patients.map((patient, index) => {
                 return {
-                    allergyImages: [banana, fish],
+                    allergyImages: [banana, fish, chicken],
                     recipeImages: [recipe1],
                     patientPreferences: [athena.random(pdata.orderStays.map((orderType) => orderType.name)), athena.random(pdata.orderStays.map((orderType) => orderType.name))],
                     carePlan: pdata.orderStays,
                     allergies: pdata.allergies['allergies'],
                     mealPlan: pdata.orderTypeResponseRegularDiet['dietorders'] ,
-                    suggestedIngredients: [bread, carrot, grape, celery, chicken, steak],
+                    suggestedIngredients: [["salad", salad],["chicken", chicken]],
+                    suggestedIngredientsLabels: ["bread", "carrot", "chicken", "steak"],
                     availableIngredients: [banana, bread, carrot, chicken, fish, grape, steak],
                     medications: ["Alprazolam (Xanax)"]
                 }
@@ -168,7 +170,12 @@ export default class Dashboard extends Component {
             <div className="dash-grid-cell">
                 {this.state.patientData[this.state.selected].suggestedIngredients.map(function(preference, index){
                     // return <li className="" key={preference}>{preference}</li>
-                    return <Col xs={4} md={4} key={index}><Thumbnail href="#" alt="171x180" src={preference} /></Col>
+                    console.log(preference)
+                    // var finalLabel = preference.replace('\/static\/media\/','')
+                    // var realFinalLabel = finalLabel.replace('.\\d.+','')
+                    return <div><Col xs={7} md={7} key={index}>
+                        {/*<Label>{preference[0]}</Label>*/}
+                        <Thumbnail className="" href="#" alt="171x180" src={preference[1]} /></Col></div>
                 })}
             </div>
         )
