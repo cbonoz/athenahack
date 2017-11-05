@@ -19,15 +19,15 @@ export default class Header extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            {/* <LinkContainer to="/">
-                                <NavItem>Home</NavItem>
-                            </LinkContainer> */}
                             <LinkContainer to="/dashboard">
                                 <NavItem>Clinician Dashboard</NavItem>
                             </LinkContainer>
                             <LinkContainer to="/reporting">
                                 <NavItem>Meal Metrics</NavItem>
                             </LinkContainer>
+                            {/* <LinkContainer to="/logout"> */}
+                                <NavItem>Logout</NavItem>
+                            {/* </LinkContainer> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

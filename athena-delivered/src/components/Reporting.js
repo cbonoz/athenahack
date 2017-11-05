@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Grid, Row, Col } from 'react-bootstrap';
+import { Table, Grid, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import MyBarChart from './charts/MyBarChart';
 import MyLineChart from './charts/MyLineChart';
 import MyRadarChart from './charts/MyRadarChart';
@@ -86,20 +86,27 @@ export default class Reporting extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={1} md={1}>
-                            <h4>Reporting</h4>
+                            <h4>Metrics: </h4>
                         </Col>
                         <Col xs={11} md={11}>
                             {/* <h4 className="page-heading">Meal Metrics</h4> */}
 
                             <Row>
-                                <MyLineChart data={this.state.lineData} />
-                            </Row>
-                            {/* <MyBarChart data={this.state.barData}/> */}
-                            <Row>
-                                <MyRadarChart data={this.state.radarData} />
-                            </Row>
-                            <Row>
-                                <h4>Patient Data</h4>
+                                <ListGroup>
+                                    <ListGroupItem header={"Historic Food Consumption"} bsStyle="success">
+                                    </ListGroupItem>
+                                    {/* <h2 className="purple reporting-header">Historic Food Consumption</h2> */}
+                                    <ListGroupItem>
+                                        <MyLineChart data={this.state.lineData} />
+                                    </ListGroupItem>
+                                <ListGroupItem header={"Most Popular Food by Category"} bsStyle="danger"></ListGroupItem>
+                                    {/* <h2 className="purple reporting-header">Most Popular Food by Category</h2> */}
+                                    <ListGroupItem>
+                                        <MyRadarChart data={this.state.radarData} />
+                                    </ListGroupItem>
+                                </ListGroup>
+                                <ListGroupItem header={"Patient Data"} bsStyle="info"></ListGroupItem>
+                                <ListGroupItem>
                                 <Table striped bordered condensed hover>
                                     <thead>
                                         <tr>
@@ -118,6 +125,7 @@ export default class Reporting extends Component {
                                         })}
                                     </tbody>
                                 </Table>
+                                </ListGroupItem>
                             </Row>
 
                         </Col>
